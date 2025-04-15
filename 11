@@ -1,0 +1,218 @@
+p1-a
+ class Student {
+     String name;
+     int age;
+ 	Student(String n, int a) {
+         name = n;
+         age = a;
+     }
+     void displayInfo() {
+         System.out.println("Name: " + name);
+         System.out.println("Age: " + age);
+     }
+     public static void main(String[] args) {
+         Student s1 = new Student("Alice", 20);
+         s1.displayInfo();
+   }
+ }
+ p1-b
+ class Studentb{
+ 	String name;
+ 	int age;
+ 	Studentb(String name,int age){
+ 		this.name=name;
+ 		this.age=age;
+ 	}
+ 	void display(){
+ 		System.out.println("Name: "+this.name);
+ 		System.out.println("Age: "+this.age);
+ 	}
+ 	public static void main(String args[]){
+ 		Studentb s1=new Studentb("Harsh",21);
+ 		s1.display();
+ 	}
+ }
+ p2-a
+ class Calculator{
+ 	int add(int a,int b){
+ 		return a+b;
+ 	}
+ 	double add(double a,double b){
+ 		return a+b;
+ 	}
+ 	public static void main(String args[]){
+ 		Calculator calc=new Calculator();
+ 		int iResult=calc.add(10,20);
+ 		System.out.println("Addition of Integers: "+iResult);
+ 		double dResult=calc.add(5.5,4.5);
+ 		System.out.println("Addition of Doubles: "+dResult);
+ 		
+ 	}
+ }
+ p2-b
+ public class StringModifier {
+     public static String modifyString(String str) {
+         str = str + " Hello"; 
+         return str;          
+     }
+     public static void main(String[] args) {
+         String original = "Welcome";
+         String modified = modifyString(original);
+         System.out.println("Original String: " + original);
+         System.out.println("Modified String: " + modified);
+     }
+ }
+ p3-a
+ class Shape {
+     void calculateArea() {
+         System.out.println("Calculating area in Shape");
+     }
+ }
+ class Circle extends Shape {
+     double radius = 5.0;
+     void calculateArea() {
+         double area = Math.PI * radius * radius;
+         System.out.println("Area of Circle: " + area);
+     }
+ }
+ class Rectangle extends Shape {
+     double length = 4.0;
+     double width = 3.0;
+     void calculateArea() {
+         double area = length * width;
+         System.out.println("Area of Rectangle: " + area);
+     }
+}
+ public class ShapeTest {
+     public static void main(String[] args) {
+         Shape s;
+         s = new Circle();   
+         s.calculateArea();   
+         s = new Rectangle(); 
+         s.calculateArea();   
+     }
+ }
+ p3-b
+ class Animal2_B {
+     void makeSound() {
+         System.out.println("Animal makes a sound");
+     }
+ }
+ class Dog extends Animal2_B {
+     void makeSound() {
+         System.out.println("Dog barks");
+     }
+ }
+ class Cat extends Animal2_B {
+     void makeSound() {
+         System.out.println("Cat meows");
+     }
+ }
+ class AnimalTest {
+     public static void main(String args[]) {
+         Animal2_B a;
+         a = new Dog(); 
+         a.makeSound();  
+         a = new Cat(); 
+         a.makeSound();  
+     }
+ }
+ p4-b
+ interface Drawable {
+     void draw();
+ }
+ // Circle class implementing Drawable
+ class Circle implements Drawable {
+     public void draw() {
+         System.out.println("Drawing a Circle");
+     }
+ }
+ // Rectangle class implementing Drawable
+ class Rectangle implements Drawable {
+     public void draw() {
+         System.out.println("Drawing a Rectangle");
+     }
+ }
+ // Main class to test the implementation
+ public class DrawableTest {
+     public static void main(String[] args) {
+         Drawable d;
+         d = new Circle();  
+         d.draw();            
+         d = new Rectangle(); 
+         d.draw();            
+     }
+ }
+ p5-a
+ class Outer {
+     int outerValue = 10;
+     class Inner {
+         int innerValue = 20;
+         void showInner() {
+             System.out.println("Inner value: " + innerValue);
+             System.out.println("Accessing Outer value from Inner: " + outerValue);
+         }
+     }
+     void accessInner() {
+         Inner in = new Inner();   
+         in.showInner();             
+     }
+ }
+ public class OuterTest {
+     public static void main(String[] args) {
+         Outer outer = new Outer();  
+         outer.accessInner();        
+     }
+ }
+ p5-b
+ public class LinkedListExample {
+     static class LinkedList {
+         private class Node {
+             int data;
+             Node next;
+ 
+             Node(int data) {
+                 this.data = data;
+                 this.next = null;
+             }
+         }
+         private Node head = null;
+         public void add(int value) {
+             Node newNode = new Node(value);
+             if (head == null) {
+                 head = newNode;
+             } else {
+                 Node temp = head;
+                 while (temp.next != null) {
+                     temp = temp.next;
+                 }
+                 temp.next = newNode;
+             }
+         }
+          public void remove() {
+             if (head == null) {
+                 System.out.println("List is empty. Nothing to remove.");
+             } else {
+                 System.out.println("Removed: " + head.data);
+                 head = head.next;
+             }
+         }
+         public void display() {
+             if (head == null) {
+                 System.out.println("List is empty.");
+             } else {
+                 Node temp = head;
+                 System.out.print("Linked List: ");
+                 while (temp != null) {
+                     System.out.print(temp.data + " ");
+                     temp = temp.next;
+                 }
+                 System.out.println();}}}
+     public static void main(String[] args) {
+         LinkedList list = new LinkedList();
+         list.add(10);
+         list.add(20);
+         list.add(30);
+         list.display(); 
+         list.remove();  
+         list.display();}}
